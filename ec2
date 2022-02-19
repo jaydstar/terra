@@ -1,0 +1,19 @@
+provider "aws" {
+  access_key = "XXX"
+  secret_key = "XXX"
+  region     = "af-south-1"
+}
+
+
+resource "aws_instance" "example" {
+  ami           = "ami-0bf83c7478df027a0"
+  instance_type = "t3.nano"
+  key_name= "awskpair"
+}
+resource "aws_key_pair" "deployer" {
+  key_name= "awskpair"
+  public_key = "XXX"
+  }
+
+#yum install ansible -y
+#sudo amazon-linux-extras install ansible2
